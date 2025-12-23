@@ -1,4 +1,4 @@
-<h1 align="center">🏡 EasyStay - Accomodation Booking Website</h1>
+<h1 align="left">🏡 EasyStay - Accomodation Booking Website</h1>
 
 ###
 

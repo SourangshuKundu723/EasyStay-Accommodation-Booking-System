@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 const path = require("path");
+const methodOverride = require("method-override");
 
 main().then((res) => {
     console.log("connection successful");
@@ -17,6 +18,7 @@ async function main(){
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 app.use(express.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
     res.send("root is working");
@@ -58,6 +60,19 @@ app.get("/listings/:id", async (req, res) => {
     let {id} = req.params;
     const listing = await Listing.findById(id);
     res.render("listings/show.ejs", {listing});
+});
+
+//Edit Route
+app.get("/listings/:id/edit", async (req, res) => {
+    let {id} = req.params;
+    const listing = await Listing.findById(id);
+    res.render("listings/edit.ejs", {listing});
+});
+
+app.put("/listings/:id", async (req, res) => {
+    let {id} = req.params;
+    await Listing.findByIdAndUpdate(id, {...req.body.listing}, {runValidators: true, new: true});
+    res.redirect(`/listings/${id}`);
 });
 
 app.listen(8080, () => {

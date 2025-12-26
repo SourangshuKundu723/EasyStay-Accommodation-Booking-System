@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyStay</title>
-</head>
+<% layout("layouts/boilerplate.ejs") %>
 <body>
     <h2>Edit your listing</h2>
     <form method="post" action="/listings/<%= listing._id %>?_method=PUT">
@@ -23,4 +17,3 @@
         <button>Update</button>
     </form>
 </body>
-</html>

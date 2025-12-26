@@ -8,10 +8,11 @@
                     <img src="<%= listing.image %>" class="card-img-top" alt="listing image" style="height: 20rem;">
                     <div class="card-img-overlay"></div>
                     <div class="card-body">
+                        <h5 class="card-title mt-2"><b><%= listing.title %></b></h5>
                         <p class="card-text">
-                            <b><%= listing.title %></b>
+                            <i class="fa-solid fa-location-dot"></i> <%= listing.location %>, <%= listing.country %>
                             <br>
-                            &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
+                            <i class="fa-solid fa-indian-rupee-sign"></i> <%= listing.price.toLocaleString("en-IN") %> / night
                         </p>
                     </div>
                 </div>

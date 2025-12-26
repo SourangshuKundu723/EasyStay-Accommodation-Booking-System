@@ -100,3 +100,7 @@ body{
     background-color: #fe424d;
     border: none;
 }
+
+.form-label{
+    font-weight: 650;
+}

@@ -65,7 +65,7 @@ body{
     margin-bottom: 2rem;
 }
 
-.card:hover{
+.card-display:hover{
     transform: scale(1.02);
 }
 
@@ -103,4 +103,13 @@ body{
 
 .form-label{
     font-weight: 650;
+}
+
+.show-img{
+    height: 48vh;
+}
+
+.btns{
+    display: flex;
+    gap: 12px;
 }

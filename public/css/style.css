@@ -28,17 +28,17 @@ body{
     font-size: 2rem;
 }
 
-.f-info-links a{
+.f-info-links a, .dot{
     text-decoration: none;
     color: #222222;
-    margin-right: 0.8rem;
+    margin-right: 0.5rem;
 }
 
 .f-info-links a:hover{
     text-decoration: underline;
 }
 
-.f-info-socials, .f-info-brand, .f-info-links{
+.f-info-socials, .f-info-brand, .f-info-text, .f-info-links{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -99,6 +99,10 @@ body{
 .btn{
     background-color: #fe424d;
     border: none;
+}
+
+.btn:hover{
+    background-color: #eb000f;
 }
 
 .form-label{

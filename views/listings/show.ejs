@@ -8,21 +8,21 @@
                 <div class="card-body">
                     <h5 class="mt-2"><b><%= listing.title %></b></h5>
                     <p class="card-text">
-                        <%= listing.description %>
+                        <i class="fa-solid fa-bars-staggered"></i> <%= listing.description %>
                         <br>
-                        &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
+                        <i class="fa-solid fa-indian-rupee-sign"></i> <%= listing.price.toLocaleString("en-IN") %> / night
                         <br>
-                        <%= listing.location %>
+                        <i class="fa-solid fa-location-dot"></i> <%= listing.location %>
                         <br>
-                        <%= listing.country %>
+                        <i class="fa-solid fa-earth-americas"></i> <%= listing.country %>
                     </p>
                 </div>
-                <div class="btns mt-2 mb-4">
+                <div class="btns mt-3 mb-3">
                     <form method="get" action="/listings/<%= listing._id %>/edit">
-                        <button class="btn btn-dark">Edit</button>
+                        <button class="btn btn-dark"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
                     </form>
                     <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
-                        <button class="btn btn-dark">Delete</button>
+                        <button class="btn btn-dark"><i class="fa-solid fa-trash-can"></i> Delete</button>
                     </form>
                 </div>
             </div>

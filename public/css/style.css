@@ -11,7 +11,7 @@ body{
 
 .heading{
     margin-top: 1.1rem;
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.15rem;
 }
 
 .navbar{
@@ -31,7 +31,6 @@ body{
 .f-info-links a, .dot{
     text-decoration: none;
     color: #222222;
-    margin-right: 0.5rem;
 }
 
 .f-info-links a:hover{
@@ -41,13 +40,42 @@ body{
 .f-info-socials, .f-info-brand, .f-info-text, .f-info-links{
     width: 100%;
     display: flex;
+    gap: 0.5rem;
     justify-content: center;
     align-items: center;
 }
 
+.f-info-socials{
+    margin-top: 0.4rem;
+}
+
+.f-info-socials a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #222222;
+    margin: 0;
+}
+
+#x-logo:hover{
+    color: white;
+}
+
+#facebook-logo:hover{
+    color: #1877F2;
+}
+
+#instagram-logo:hover{
+    color: #E1306C;
+}
+
+#linkedin-logo:hover{
+    color: #0077B5;
+}
+
 .f-info-socials i{
-    font-size: 1.3rem;
-    margin-right: 0.8rem;
+    font-size: 1.4rem;
 }
 
 .f-info{
@@ -110,7 +138,7 @@ body{
 }
 
 .show-img{
-    height: 48vh;
+    height: 49vh;
 }
 
 .btns{

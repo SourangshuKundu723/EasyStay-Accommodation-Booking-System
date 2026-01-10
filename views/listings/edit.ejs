@@ -3,32 +3,44 @@
     <div class="row">
         <div class="col-8 offset-2">
             <h2 class="heading">Edit your listing</h2>
-            <form method="post" action="/listings/<%= listing._id %>?_method=PUT">
+            <form method="post" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control">
+                    <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required>
+                    <div class="valid-feedback" aria-live="assertive">Title looks good!</div>
+                    <div class="invalid-feedback" aria-live="assertive">Please enter a title</div>
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">Description</label>
-                    <textarea name="listing[description]" type="text" class="form-control"><%= listing.description %></textarea>
+                    <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+                    <div class="valid-feedback" aria-live="assertive">Description looks good!</div>
+                    <div class="invalid-feedback" aria-live="assertive">Please provide a short description</div>
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">Image Link</label>
-                    <input name="listing[image]" value="<%= listing.image %>" type="text" class="form-control">
+                    <input name="listing[image]" value="<%= listing.image %>" type="text" class="form-control" required>
+                    <div class="valid-feedback" aria-live="assertive">Image Link looks good!</div>
+                    <div class="invalid-feedback" aria-live="assertive">Please enter a valid image link</div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-md-4">
                         <label for="title" class="form-label">Price</label>
-                        <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control">
+                        <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required>
+                        <div class="valid-feedback" aria-live="assertive">Price looks good!</div>
+                        <div class="invalid-feedback" aria-live="assertive">Please enter a valid price</div>
                     </div>
                     <div class="mb-3 col-md-8">
                         <label for="title" class="form-label">Location</label>
-                        <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control">
+                        <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required>
+                        <div class="valid-feedback" aria-live="assertive">Location looks good!</div>
+                        <div class="invalid-feedback" aria-live="assertive">Please enter the location</div>
                     </div>
                 </div>
                 <div class="mb-4">
                     <label for="title" class="form-label">Country</label>
-                    <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control">
+                    <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required>
+                    <div class="valid-feedback" aria-live="assertive">Country name looks good!</div>
+                    <div class="invalid-feedback" aria-live="assertive">Please enter the country name</div>
                 </div>
                 <button class="btn btn-dark mb-4"><i class="fa-solid fa-check"></i> Update</button>
             </form>

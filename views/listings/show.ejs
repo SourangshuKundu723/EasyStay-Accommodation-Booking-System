@@ -10,7 +10,7 @@
                     <p class="card-text">
                         <i class="fa-solid fa-bars-staggered"></i> <%= listing.description %>
                         <br>
-                        <i class="fa-solid fa-indian-rupee-sign"></i> <%= listing.price.toLocaleString("en-IN") %> / night
+                        <i class="fa-solid fa-indian-rupee-sign"></i> <%= listing.price ? listing.price.toLocaleString("en-IN") : 0 %> / night
                         <br>
                         <i class="fa-solid fa-location-dot"></i> <%= listing.location %>
                         <br>

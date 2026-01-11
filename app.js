@@ -87,6 +87,11 @@ app.delete("/listings/:id", async (req, res) => {
     res.redirect("/listings");
 });
 
+//Custom Error Handler
+app.use((err, req, res, next) => {
+    res.send("Something went wrong!");
+});
+
 app.listen(8080, () => {
     console.log("app is listening to port 8080");
 });

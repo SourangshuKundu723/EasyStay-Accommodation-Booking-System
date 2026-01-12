@@ -42,7 +42,10 @@
                     <div class="valid-feedback" aria-live="assertive">Country name looks good!</div>
                     <div class="invalid-feedback" aria-live="assertive">Please enter the country name</div>
                 </div>
-                <button class="btn btn-dark mb-4"><i class="fa-solid fa-check"></i> Update</button>
+                <div class="btns mt-3 mb-4">
+                    <button class="btn btn-dark"><i class="fa-solid fa-check"></i> Update</button>
+                    <a href="/listings/<%= listing._id %>" class="btn btn-dark"><i class="fa-solid fa-xmark"></i> Cancel</a>
+                </div>
             </form>
         </div>
     </div>

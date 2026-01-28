@@ -2,11 +2,10 @@
 <body>
     <div class="row">
         <div class="col-8 offset-2">
-            <h2 class="heading">Listing details</h2>
+            <h2 class="heading"><b><%= listing.title %></b></h2>
             <div class="card">
-                <img src="<%= listing.image %>" class="card-img-top show-img" alt="listing image">
+                <img src="<%= listing.image %>" class="card-img-top show-img mb-2" alt="listing image">
                 <div class="card-body">
-                    <h5 class="mt-2"><b><%= listing.title %></b></h5>
                     <p class="card-text">
                         <i class="fa-solid fa-bars-staggered"></i> <%= listing.description %>
                         <br>
@@ -17,7 +16,7 @@
                         <i class="fa-solid fa-earth-americas"></i> <%= listing.country %>
                     </p>
                 </div>
-                <div class="btns mt-3 mb-3">
+                <div class="btns mt-3">
                     <form method="get" action="/listings/<%= listing._id %>/edit">
                         <button class="btn btn-dark"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
                     </form>
@@ -26,6 +25,21 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="col-8 offset-2 mb-5">
+            <hr>
+            <h3 class="mb-3"><b>Leave a review</b></h3>
+            <form method="post" action="/listings/<%= listing._id %>/reviews">
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Rating</label>
+                    <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
+                </div>
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Comment</label>
+                    <textarea rows="5" name="review[comment]" id="comment" class="form-control"></textarea>
+                </div>
+                <button class="btn btn-dark"><i class="fa-solid fa-check"></i> Submit</button>
+            </form>
         </div>
     </div>
 </body>

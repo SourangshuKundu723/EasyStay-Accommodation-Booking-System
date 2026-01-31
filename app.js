@@ -8,6 +8,7 @@ const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 const listingSchema = require("./schema.js");
+const Review = require("./models/review.js");
 
 main().then((res) => {
     console.log("connection successful");
@@ -54,6 +55,7 @@ const validateListing = (req, res, next) => {
     }
 }
 
+//listings
 //Index Route
 app.get("/listings", wrapAsync(async (req, res) => {
     const allListings = await Listing.find({});
@@ -103,6 +105,18 @@ app.delete("/listings/:id", wrapAsync(async (req, res) => {
     console.log(deletedListing);
     res.redirect("/listings");
 }));
+
+//reviews
+//create route
+app.post("/listings/:id/reviews", async (req, res) => {
+    let {id} = req.params;
+    let listing = await Listing.findById(id);
+    let newReview = new Review(req.body.review);
+    listing.reviews.push(newReview);
+    await newReview.save();
+    await listing.save();
+    res.redirect(`/listings/${id}`);
+});
 
 app.use((req, res, next) => {
     next(new ExpressError(404, "Page not found!"));

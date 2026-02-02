@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-8 offset-2">
             <h2 class="heading"><b><%= listing.title %></b></h2>
-            <div class="card">
+            <div class="card listing-card">
                 <img src="<%= listing.image %>" class="card-img-top show-img mb-2" alt="listing image">
                 <div class="card-body">
                     <p class="card-text">
@@ -41,6 +41,30 @@
                 </div>
                 <button class="btn btn-dark"><i class="fa-solid fa-check"></i> Submit</button>
             </form>
+            <hr>
+            <h3 class="mb-3"><b>All reviews</b></h3>
+            <div class="row">
+                <% if(listing.reviews.length > 0){
+                    for(let review of listing.reviews){ %>
+                    <div class="card col-5 ms-3 mb-3">
+                        <div class="card-body mt-2 mb-2">
+                            <h5 class="card-title">John Doe</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                <% for(let i=0; i<review.rating ; i++){ %>
+                                    <i class="fa-solid fa-star" style="font-size: 0.6rem; color: #FDCC0D;"></i>
+                                <% } %>
+                            </h6>
+                            <p class="card-text"><%= review.comment %></p>
+                        </div>
+                    </div>
+                <% } 
+                }else{ %>
+                    <div class="mt-5 mb-4" style="text-align: center;">
+                        <h5><b>No review yet!</b></h5>
+                        <p>Be the first one to share the review.</p>
+                    </div>
+                <% } %>
+            </div>
         </div>
     </div>
 </body>

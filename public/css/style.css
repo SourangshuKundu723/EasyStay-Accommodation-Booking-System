@@ -160,3 +160,13 @@ body{
     width: 1.5rem;
     color: #ad1d2c;
 }
+
+.dlt-btn{
+    background-color: black;
+    border: 0.5px solid black;
+}
+
+.dlt-btn:hover{
+    background-color: white;
+    color: black;
+}

@@ -46,18 +46,21 @@
             <div class="row">
                 <% if(listing.reviews.length > 0){
                     for(let review of listing.reviews){ %>
-                    <div class="card col-5 ms-3 mb-3">
-                        <div class="card-body mt-2 mb-2">
-                            <h5 class="card-title">John Doe</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">
-                                <% for(let i=0; i<review.rating ; i++){ %>
-                                    <i class="fa-solid fa-star" style="font-size: 0.6rem; color: #FDCC0D;"></i>
-                                <% } %>
-                            </h6>
-                            <p class="card-text"><%= review.comment %></p>
+                        <div class="card col-5 ms-3 mb-3">
+                            <div class="card-body mt-3 mb-3">
+                                <h5 class="card-title">John Doe</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                    <% for(let i=0; i<review.rating ; i++){ %>
+                                        <i class="fa-solid fa-star" style="font-size: 0.6rem; color: #FDCC0D;"></i>
+                                    <% } %>
+                                </h6>
+                                <p class="card-text"><%= review.comment %></p>
+                            </div>
+                            <form class="mb-3" method="post" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                                <button class="btn btn-sm btn-dark dlt-btn"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </form>
                         </div>
-                    </div>
-                <% } 
+                <% }
                 }else{ %>
                     <div class="mt-5 mb-4" style="text-align: center;">
                         <h5><b>No review yet!</b></h5>

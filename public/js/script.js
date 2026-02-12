@@ -14,3 +14,21 @@
         }, false)
     })
 })()
+
+const toggle = document.getElementById("toggle");
+
+// Apply saved theme on page load
+const savedTheme = localStorage.getItem("theme") || "light";
+document.documentElement.setAttribute("data-bs-theme", savedTheme);
+
+if (savedTheme === "dark") {
+    toggle.classList.replace("bi-moon-fill", "bi-sun-fill");
+}
+
+toggle.onclick = () => {
+    const currentTheme = document.documentElement.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-bs-theme", currentTheme);
+    localStorage.setItem("theme", currentTheme);
+    toggle.classList.toggle("bi-moon-fill");
+    toggle.classList.toggle("bi-sun-fill");
+};

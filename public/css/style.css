@@ -16,11 +16,11 @@ body{
 
 .navbar{
     height: 5rem;
-    background-color: white;
+    background-color: var(--bs-body-bg);
 }
 
 .nav-link{
-    color: #222222;
+    color: var(--bs-body-color);
 }
 
 .fa-compass{
@@ -59,6 +59,10 @@ body{
     margin: 0;
 }
 
+.f-info-brand, .f-info-text{
+    color: #222222;
+}
+
 #x-logo:hover{
     color: white;
 }
@@ -93,6 +97,20 @@ body{
     background-color: #bebebe;
 }
 
+[data-bs-theme="dark"] .f-info, 
+[data-bs-theme="dark"] .f-info-socials a, 
+[data-bs-theme="dark"] .f-info-links a,
+[data-bs-theme="dark"] .dot,
+[data-bs-theme="dark"] .f-info-brand,
+[data-bs-theme="dark"] .f-info-text{
+    color: white;
+}
+
+[data-bs-theme="dark"] .f-info{
+    background-color: #2B3035;
+    border-top: 0.001px solid grey;
+}
+
 .listing-card{
     border: none;
     margin-bottom: 2rem;
@@ -122,6 +140,7 @@ body{
 
 .card-img-overlay{
     opacity: 0;
+    border-radius: 1rem;
 }
 
 .card-img-overlay:hover{
@@ -159,14 +178,4 @@ body{
     height: 1.5rem;
     width: 1.5rem;
     color: #ad1d2c;
-}
-
-.dlt-btn{
-    background-color: black;
-    border: 0.5px solid black;
-}
-
-.dlt-btn:hover{
-    background-color: white;
-    color: black;
 }

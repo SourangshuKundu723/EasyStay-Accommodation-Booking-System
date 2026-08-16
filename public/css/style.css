@@ -148,12 +148,12 @@ body{
     background-color: white;
 }
 
-.btn{
+.btn1{
     background-color: #fe424d;
     border: none;
 }
 
-.btn:hover{
+.btn1:hover{
     background-color: #eb000f;
 }
 

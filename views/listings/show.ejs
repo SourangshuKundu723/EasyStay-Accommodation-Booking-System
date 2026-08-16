@@ -18,10 +18,10 @@
                 </div>
                 <div class="btns mt-3">
                     <form method="get" action="/listings/<%= listing._id %>/edit">
-                        <button class="btn btn-dark"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                        <button class="btn btn1 btn-dark"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
                     </form>
                     <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
-                        <button class="btn btn-dark"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                        <button class="btn btn1 btn-dark"><i class="fa-solid fa-trash-can"></i> Delete</button>
                     </form>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     <textarea rows="5" name="review[comment]" id="comment" class="form-control" required></textarea>
                     <div class="invalid-feedback">Please write a comment for this review!</div>
                 </div>
-                <button class="btn btn-dark"><i class="fa-solid fa-check"></i> Submit</button>
+                <button class="btn btn1 btn-dark"><i class="fa-solid fa-check"></i> Submit</button>
             </form>
             <hr>
             <h3 class="mb-3"><b>All reviews</b></h3>
@@ -57,7 +57,7 @@
                                 <p class="card-text"><%= review.comment %></p>
                             </div>
                             <form class="mb-3" method="post" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-                                <button class="btn btn-sm btn-dark dlt-btn"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                                <button class="btn btn1 btn-sm btn-dark dlt-btn"><i class="fa-solid fa-trash-can"></i> Delete</button>
                             </form>
                         </div>
                 <% }

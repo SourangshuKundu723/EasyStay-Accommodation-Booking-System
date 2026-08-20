@@ -116,6 +116,11 @@ body{
     margin-bottom: 2rem;
 }
 
+.show-listing-card{
+    border: none;
+    margin-bottom: 0.1rem;
+}
+
 .card-display:hover{
     transform: scale(1.02);
 }

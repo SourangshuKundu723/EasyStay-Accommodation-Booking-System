@@ -7,6 +7,8 @@
                 <img src="<%= listing.image %>" class="card-img-top show-img mb-2" alt="listing image">
                 <div class="card-body">
                     <p class="card-text">
+                        <i class="fa-solid fa-user"></i> Owned by: <i><span class="fw-semibold"><%= listing.owner.username %></span></i>
+                        <br>
                         <i class="fa-solid fa-bars-staggered"></i> <%= listing.description %>
                         <br>
                         <i class="fa-solid fa-indian-rupee-sign"></i> <%= listing.price ? listing.price.toLocaleString("en-IN") : 0 %> / night
@@ -63,6 +65,7 @@
                 <% }
                 }else{ %>
                     <div class="mt-5 mb-4" style="text-align: center;">
+                        <i class="fa-solid fa-message fs-2 mb-2"></i>
                         <h5><b>No review yet!</b></h5>
                         <p>Be the first one to share the review.</p>
                     </div>

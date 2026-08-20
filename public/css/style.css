@@ -116,6 +116,15 @@ body{
     margin-bottom: 2rem;
 }
 
+.show-listing-card{
+    border: none;
+    margin-bottom: 0.1rem;
+}
+
+.owner-card{
+    margin-bottom: 2rem;
+}
+
 .card-display:hover{
     transform: scale(1.02);
 }

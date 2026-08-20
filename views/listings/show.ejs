@@ -3,8 +3,8 @@
     <div class="row">
         <div class="col-8 offset-2">
             <h2 class="heading"><b><%= listing.title %></b></h2>
-            <div class="card listing-card">
-                <img src="<%= listing.image %>" class="card-img-top show-img mb-2" alt="listing image">
+            <div class="card show-listing-card <%= currUser && currUser._id.equals(listing.owner._id) ? 'owner-card' : '' %>">
+                <img src="<%= listing.image %>" class="card-img-top show-img mb-3" alt="listing image">
                 <div class="card-body">
                     <p class="card-text">
                         <i class="fa-solid fa-user"></i> Owned by: <i><span class="fw-semibold"><%= listing.owner.username %></span></i>
@@ -18,14 +18,16 @@
                         <i class="fa-solid fa-earth-americas"></i> <%= listing.country %>
                     </p>
                 </div>
-                <div class="btns mt-3">
-                    <form method="get" action="/listings/<%= listing._id %>/edit">
-                        <button class="btn btn1 btn-dark"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
-                    </form>
-                    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
-                        <button class="btn btn1 btn-dark"><i class="fa-solid fa-trash-can"></i> Delete</button>
-                    </form>
-                </div>
+                <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
+                    <div class="btns mt-3">
+                        <form method="get" action="/listings/<%= listing._id %>/edit">
+                            <button class="btn btn1 btn-dark"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                        </form>
+                        <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
+                            <button class="btn btn1 btn-dark"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                        </form>
+                    </div>
+                <% } %>
             </div>
         </div>
         <div class="col-8 offset-2 mb-5">

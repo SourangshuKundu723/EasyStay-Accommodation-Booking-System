@@ -33,18 +33,25 @@
         <div class="col-8 offset-2 mb-5">
             <hr>
             <h3 class="mb-3"><b>Leave a review</b></h3>
-            <form method="post" action="/listings/<%= listing._id %>/reviews" novalidate class="needs-validation">
-                <div class="mb-3">
-                    <label for="rating" class="form-label">Rating</label>
-                    <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
+            <% if(currUser) { %>
+                <form method="post" action="/listings/<%= listing._id %>/reviews" novalidate class="needs-validation">
+                    <div class="mb-3">
+                        <label for="rating" class="form-label">Rating</label>
+                        <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
+                    </div>
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Comment</label>
+                        <textarea rows="5" name="review[comment]" id="comment" class="form-control" required></textarea>
+                        <div class="invalid-feedback">Please write a comment for this review!</div>
+                    </div>
+                    <button class="btn btn1 btn-dark"><i class="fa-solid fa-check"></i> Submit</button>
+                </form>
+            <% } else{ %>
+                <div class="mt-5 mb-5" style="text-align: center;">
+                    <i class="fa-solid fa-message fs-2 mb-2"></i>
+                    <h6><b>Please <a href="/login" class="text-decoration-none">login</a> to create a review</b></h6>
                 </div>
-                <div class="mb-3">
-                    <label for="comment" class="form-label">Comment</label>
-                    <textarea rows="5" name="review[comment]" id="comment" class="form-control" required></textarea>
-                    <div class="invalid-feedback">Please write a comment for this review!</div>
-                </div>
-                <button class="btn btn1 btn-dark"><i class="fa-solid fa-check"></i> Submit</button>
-            </form>
+            <% } %>
             <hr>
             <h3 class="mb-3"><b>All reviews</b></h3>
             <div class="row">
@@ -52,7 +59,7 @@
                     for(let review of listing.reviews){ %>
                         <div class="card review-card col-5 ms-3 mb-3">
                             <div class="card-body mt-3 mb-3">
-                                <h5 class="card-title">John Doe</h5>
+                                <h5 class="card-title">@<%= review.author.username %></h5>
                                 <h6 class="card-subtitle mb-2 text-body-secondary">
                                     <% for(let i=0; i<review.rating ; i++){ %>
                                         <i class="fa-solid fa-star" style="font-size: 0.6rem; color: #FDCC0D;"></i>
@@ -60,9 +67,11 @@
                                 </h6>
                                 <p class="card-text"><%= review.comment %></p>
                             </div>
-                            <form class="mb-3" method="post" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-                                <button class="btn btn1 btn-sm btn-dark dlt-btn"><i class="fa-solid fa-trash-can"></i> Delete</button>
-                            </form>
+                            <% if(currUser && currUser._id.equals(review.author._id)) { %>
+                                <form class="mb-3" method="post" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                                    <button class="btn btn1 btn-sm btn-dark dlt-btn"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                                </form>
+                            <% } %>
                         </div>
                 <% }
                 }else{ %>

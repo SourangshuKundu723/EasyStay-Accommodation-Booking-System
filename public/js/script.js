@@ -15,20 +15,33 @@
     })
 })()
 
-const toggle = document.getElementById("toggle");
+const toggles = document.querySelectorAll(".toggle");
 
 // Apply saved theme on page load
 const savedTheme = localStorage.getItem("theme") || "light";
 document.documentElement.setAttribute("data-bs-theme", savedTheme);
 
-if (savedTheme === "dark") {
-    toggle.classList.replace("bi-moon-fill", "bi-sun-fill");
-}
-
-toggle.onclick = () => {
-    const currentTheme = document.documentElement.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-bs-theme", currentTheme);
-    localStorage.setItem("theme", currentTheme);
-    toggle.classList.toggle("bi-moon-fill");
-    toggle.classList.toggle("bi-sun-fill");
+const updateToggleIcon = () => {
+    toggles.forEach(toggle => {
+        if (toggle.classList.contains("bi")) {
+            toggle.classList.toggle("bi-moon-fill", savedTheme !== "dark");
+            toggle.classList.toggle("bi-sun-fill", savedTheme === "dark");
+        }
+    });
 };
+
+updateToggleIcon();
+
+toggles.forEach(toggle => {
+    toggle.onclick = () => {
+        const currentTheme = document.documentElement.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-bs-theme", currentTheme);
+        localStorage.setItem("theme", currentTheme);
+        toggles.forEach(toggle => {
+            if (toggle.classList.contains("bi")) {
+                toggle.classList.toggle("bi-moon-fill", currentTheme !== "dark");
+                toggle.classList.toggle("bi-sun-fill", currentTheme === "dark");
+            }
+        });
+    };
+});

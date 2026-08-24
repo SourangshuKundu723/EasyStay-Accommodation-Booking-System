@@ -23,6 +23,10 @@ body{
     color: var(--bs-body-color);
 }
 
+.toggle{
+    cursor: pointer;
+}
+
 .fa-compass{
     color: #fe424d;
     font-size: 2rem;

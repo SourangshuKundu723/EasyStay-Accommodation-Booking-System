@@ -10,9 +10,8 @@ const listingSchema = new mongoose.Schema({
         type: String
     },
     image: {
-        type: String,
-        default: "https://drive.google.com/file/d/1JoTmlTNnQ4GFaXNfg0WeC9rUIxe0zqBD/view?usp=sharing",
-        set: (v) => v === "" ? "https://drive.google.com/file/d/1JoTmlTNnQ4GFaXNfg0WeC9rUIxe0zqBD/view?usp=sharing" : v
+        url: String,
+        filename: String
     },
     price: {
         type: Number

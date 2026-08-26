@@ -45,7 +45,14 @@ module.exports.updateListing = async (req, res) => {
         throw new ExpressError(400, "Please send valid data for listing!");
     }
     let {id} = req.params;
-    await Listing.findByIdAndUpdate(id, {...req.body.listing}, {runValidators: true, new: true});
+    let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing}, {runValidators: true, new: true});
+    if(req.file){
+        let url = req.file.path;
+        let filename = req.file.filename;
+        console.log(url, filename);
+        listing.image = { url, filename };
+        await listing.save();
+    }
     req.flash("success", "Listing updated successfully!");
     res.redirect(`/listings/${id}`);
 };

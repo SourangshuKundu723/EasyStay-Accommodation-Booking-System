@@ -11,37 +11,50 @@
                     <div class="invalid-feedback" aria-live="assertive">Please enter a title</div>
                 </div>
                 <div class="mb-3">
-                    <label for="title" class="form-label">Description</label>
-                    <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+                    <label for="desc" class="form-label">Description</label>
+                    <textarea id="desc" name="listing[description]" class="form-control" required><%= listing.description %></textarea>
                     <div class="valid-feedback" aria-live="assertive">Description looks good!</div>
                     <div class="invalid-feedback" aria-live="assertive">Please provide a short description</div>
                 </div>
                 <div class="mb-3">
-                    <label for="title" class="form-label">Upload new image</label>
-                    <input name="listing[image]" type="file" class="form-control">
+                    
+                </div>
+                <div class="img-container mb-3">
+                    <div class="img-input-div">
+                        <label for="image" class="form-label">Upload new image</label>
+                        <input id="image" name="listing[image]" type="file" class="form-control">
+                    </div>
+                    <div class="img-preview-div">
+                        <img
+                            id="image-preview"
+                            src="<%= originalImageUrl %>"
+                            class="img-fluid rounded"
+                            alt="Current listing image"
+                        >
+                    </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-md-4">
-                        <label for="title" class="form-label">Price</label>
-                        <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required>
+                        <label for="price" class="form-label">Price</label>
+                        <input id="price" name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required>
                         <div class="valid-feedback" aria-live="assertive">Price looks good!</div>
                         <div class="invalid-feedback" aria-live="assertive">Please enter a valid price</div>
                     </div>
                     <div class="mb-3 col-md-8">
-                        <label for="title" class="form-label">Location</label>
-                        <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required>
+                        <label for="location" class="form-label">Location</label>
+                        <input id="location" name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required>
                         <div class="valid-feedback" aria-live="assertive">Location looks good!</div>
                         <div class="invalid-feedback" aria-live="assertive">Please enter the location</div>
                     </div>
                 </div>
                 <div class="mb-4">
-                    <label for="title" class="form-label">Country</label>
-                    <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required>
+                    <label for="country" class="form-label">Country</label>
+                    <input id="country" name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required>
                     <div class="valid-feedback" aria-live="assertive">Country name looks good!</div>
                     <div class="invalid-feedback" aria-live="assertive">Please enter the country name</div>
                 </div>
                 <div class="btns mt-3 mb-4">
-                    <button class="btn btn-dark"><i class="fa-solid fa-check"></i> Update</button>
+                    <button class="btn btn2 btn-dark"><i class="fa-solid fa-check"></i> Update</button>
                     <a href="/listings/<%= listing._id %>" class="btn btn1 btn-dark"><i class="fa-solid fa-xmark"></i> Cancel</a>
                 </div>
             </form>

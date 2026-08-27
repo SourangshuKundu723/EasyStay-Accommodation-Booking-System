@@ -166,6 +166,15 @@ body{
     background-color: #eb000f;
 }
 
+[data-bs-theme="dark"] .btn2 {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+[data-bs-theme="dark"] .btn2:hover {
+    background-color: #dee2e6;
+}
+
 .form-label{
     font-weight: 650;
 }
@@ -234,4 +243,36 @@ body{
     align-items: center;
     background-color: var(--bs-tertiary-bg);
     color: #fe424d;
+}
+
+#image-preview {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+.img-container {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+.img-input-div {
+    width: 70%;
+}
+
+.img-preview-div {
+    width: 30%;
+}
+
+@media (max-width: 768px) {
+    .img-container {
+        flex-direction: column;
+    }
+
+    .img-input-div,
+    .img-preview-div {
+        width: 100%;
+    }
 }

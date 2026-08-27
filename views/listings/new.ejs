@@ -18,7 +18,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Upload image</label>
-                    <input name="listing[image]" type="file" class="form-control" required>
+                    <input name="listing[image]" type="file" class="form-control" accept=".png,.jpg,.jpeg" required>
+                    <div class="invalid-feedback" aria-live="assertive">Please upload an image in PNG, JPG or JPEG format</div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-md-4">

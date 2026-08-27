@@ -45,3 +45,17 @@ toggles.forEach(toggle => {
         });
     };
 });
+
+//Dynamic image preview in edit listing form
+const imageInput = document.getElementById("image");
+const imagePreview = document.getElementById("image-preview");
+
+if (imageInput && imagePreview) {
+    imageInput.addEventListener("change", () => {
+        const file = imageInput.files[0];
+
+        if (file) {
+            imagePreview.src = URL.createObjectURL(file);
+        }
+    });
+}

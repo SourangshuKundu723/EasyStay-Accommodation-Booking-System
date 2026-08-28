@@ -262,6 +262,10 @@ body{
     width: 70%;
 }
 
+#image {
+    margin-top: 0.3rem;
+}
+
 .img-preview-div {
     width: 30%;
 }

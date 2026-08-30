@@ -40,6 +40,11 @@ const listingSchema = new mongoose.Schema({
             type: [Number],
             required: true
         }
+    },
+    category: {
+        type: String,
+        enum: ["iconic-cities", "mountains", "castles", "pools", "rooms", "camping", "farms", "arctic"],
+        required: true
     }
 });
 

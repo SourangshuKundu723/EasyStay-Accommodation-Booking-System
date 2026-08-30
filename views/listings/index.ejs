@@ -1,7 +1,44 @@
 <% layout("layouts/boilerplate") %>
 <body>
-    <h2 class="heading">All listings</h2>
-    <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2">
+    <div class="category-bar">
+        <a href="/listings" class="category <%= !category ? 'active' : '' %>">
+            <i class="fa-solid fa-house"></i>
+            <span>ALL</span>
+        </a>
+        <a href="/listings?category=iconic-cities" class="category <%= category === 'iconic-cities' ? 'active' : '' %>">
+            <i class="fa-solid fa-city"></i>
+            <span>Iconic cities</span>
+        </a>
+        <a href="/listings?category=mountains" class="category <%= category === 'mountains' ? 'active' : '' %>">
+            <i class="fa-solid fa-mountain"></i>
+            <span>Mountains</span>
+        </a>
+        <a href="/listings?category=castles" class="category <%= category === 'castles' ? 'active' : '' %>">
+            <i class="fa-brands fa-fort-awesome"></i>
+            <span>Castles</span>
+        </a>
+        <a href="/listings?category=pools" class="category <%= category === 'pools' ? 'active' : '' %>">
+            <i class="fa-solid fa-person-swimming"></i>
+            <span>Amazing pools</span>
+        </a>
+        <a href="/listings?category=rooms" class="category <%= category === 'rooms' ? 'active' : '' %>">
+            <i class="fa-solid fa-bed"></i>
+            <span>Rooms</span>
+        </a>
+        <a href="/listings?category=camping" class="category <%= category === 'camping' ? 'active' : '' %>">
+            <i class="fa-solid fa-tent"></i>
+            <span>Camping</span>
+        </a>
+        <a href="/listings?category=farms" class="category <%= category === 'farms' ? 'active' : '' %>">
+            <i class="fa-solid fa-cow"></i>
+            <span>Farms</span>
+        </a>
+        <a href="/listings?category=arctic" class="category <%= category === 'arctic' ? 'active' : '' %>">
+            <i class="fa-solid fa-snowflake"></i>
+            <span>Arctic</span>
+        </a>
+    </div>
+    <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 mt-3">
         <% for(let listing of allListings){ %>
             <a href="/listings/<%= listing._id %>" class="card-link">
                 <div class="card card-display col listing-card">

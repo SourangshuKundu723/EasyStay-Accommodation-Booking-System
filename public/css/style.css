@@ -295,3 +295,67 @@ body{
 .mapboxgl-popup-close-button {
     color: #222;
 }
+
+.category-bar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 0.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.category-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.category {
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: var(--bs-secondary-color);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    transition: 0.2s ease;
+}
+
+.category {
+    font-size: 0.9rem;
+}
+
+.category:hover {
+    color: #fe424d;
+}
+
+.category.active {
+    color: #fe424d;
+}
+
+.category.active i {
+    color: #fe424d;
+}
+
+@media (max-width: 768px) {
+    .category-bar {
+        gap: 1.5rem;
+        padding: 0.7rem 1rem;
+    }
+
+    .category {
+        min-width: 65px;
+        font-size: 0.75rem;
+    }
+
+    .category i {
+        font-size: 1.1rem;
+    }
+}
+
+.category.active {
+    color: #fe424d;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #fe424d;
+}

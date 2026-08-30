@@ -1,11 +1,21 @@
 const Listing = require("../models/listing.js");
+const { cloudinary } = require("../cloudConfig.js");
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 let mapToken = process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 module.exports.index = async (req, res) => {
-    const allListings = await Listing.find({});
-    res.render("listings/index.ejs", {allListings});
+    let { category } = req.query;
+
+    let allListings;
+
+    if(category){
+        allListings = await Listing.find({category});
+    } else {
+        allListings = await Listing.find({});
+    }
+    
+    res.render("listings/index.ejs", {allListings, category});
 };
 
 module.exports.renderNewForm = (req, res) => {
@@ -53,24 +63,65 @@ module.exports.renderEditForm = async (req, res) => {
 };
 
 module.exports.updateListing = async (req, res) => {
-    if(!req.body.listing){
+    if (!req.body.listing) {
         throw new ExpressError(400, "Please send valid data for listing!");
     }
-    let {id} = req.params;
-    let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing}, {runValidators: true, new: true});
-    if(req.file){
-        let url = req.file.path;
-        let filename = req.file.filename;
-        console.log(url, filename);
-        listing.image = { url, filename };
-        await listing.save();
+
+    const { id } = req.params;
+
+    const listing = await Listing.findById(id);
+
+    if (!listing) {
+        throw new ExpressError(404, "Listing not found!");
     }
+
+    // Check whether location changed
+    if (req.body.listing.location !== listing.location) {
+        const response = await geocodingClient.forwardGeocode({
+            query: req.body.listing.location,
+            limit: 1
+        }).send();
+
+        if (!response.body.features.length) {
+            throw new ExpressError(400, "Location could not be found!");
+        }
+
+        listing.geometry = response.body.features[0].geometry;
+    }
+
+    // Update listing fields
+    Object.assign(listing, req.body.listing);
+
+    // Update image if a new image was uploaded
+    if (req.file) {
+        const url = req.file.path;
+        const filename = req.file.filename;
+
+        if (listing.image && listing.image.filename) {
+            await cloudinary.uploader.destroy(listing.image.filename);
+        }
+
+        listing.image = { url, filename };
+    }
+
+    await listing.save();
+
     req.flash("success", "Listing updated successfully!");
     res.redirect(`/listings/${id}`);
 };
 
 module.exports.deleteListing = async (req, res) => {
     let {id} = req.params;
+    const listing = await Listing.findById(id);
+
+    if (!listing) {
+        throw new ExpressError(404, "Listing not found!");
+    }
+
+    // Delete image from Cloudinary
+    if (listing.image && listing.image.filename) {
+        await cloudinary.uploader.destroy(listing.image.filename);
+    }
     let deletedListing = await Listing.findByIdAndDelete(id);
     req.flash("success", "Listing deleted successfully!");
     console.log(deletedListing);

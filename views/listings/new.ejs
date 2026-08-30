@@ -6,38 +6,54 @@
             <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input name="listing[title]" placeholder="enter title" type="text" class="form-control" required>
+                    <input id="title" name="listing[title]" placeholder="enter title" type="text" class="form-control" required>
                     <div class="valid-feedback" aria-live="assertive">Title looks good!</div>
                     <div class="invalid-feedback" aria-live="assertive">Please enter a title</div>
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="listing[description]" placeholder="enter description" class="form-control" required></textarea>
+                    <textarea id="description" name="listing[description]" placeholder="enter description" class="form-control" required></textarea>
                     <div class="valid-feedback" aria-live="assertive">Description looks good!</div>
                     <div class="invalid-feedback" aria-live="assertive">Please provide a short description</div>
                 </div>
                 <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select id="category" name="listing[category]" class="form-select" aria-label="Default select example" required>
+                        <option value="" selected disabled>Select a category</option>
+                        <option value="iconic-cities">Iconic Cities</option>
+                        <option value="mountains">Mountains</option>
+                        <option value="castles">Castles</option>
+                        <option value="pools">Pools</option>
+                        <option value="rooms">Rooms</option>
+                        <option value="camping">Camping</option>
+                        <option value="farms">Farms</option>
+                        <option value="arctic">Arctic</option>
+                    </select>
+                    <div class="valid-feedback" aria-live="assertive">Category looks good!</div>
+                    <div class="invalid-feedback" aria-live="assertive">Please select a category</div>
+                </div>
+                <div class="mb-3">
                     <label for="image" class="form-label">Upload image</label>
-                    <input name="listing[image]" type="file" class="form-control" accept=".png,.jpg,.jpeg" required>
-                    <div class="invalid-feedback" aria-live="assertive">Please upload an image in PNG, JPG or JPEG format</div>
+                    <input id="image" name="listing[image]" type="file" class="form-control" accept=".png,.jpg,.jpeg,.avif" required>
+                    <div class="invalid-feedback" aria-live="assertive">Please upload an image in PNG, JPG, JPEG or AVIF format</div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-md-4">
                         <label for="price" class="form-label">Price</label>
-                        <input name="listing[price]" placeholder="enter price" type="number" min="1" class="form-control" required>
+                        <input id="price" name="listing[price]" placeholder="enter price" type="number" min="1" class="form-control" required>
                         <div class="valid-feedback" aria-live="assertive">Price looks good!</div>
                         <div class="invalid-feedback" aria-live="assertive">Please enter a valid price</div>
                     </div>
                     <div class="mb-3 col-md-8">
                         <label for="location" class="form-label">Location</label>
-                        <input name="listing[location]" placeholder="enter location" type="text" class="form-control" required>
+                        <input id="location" name="listing[location]" placeholder="enter location" type="text" class="form-control" required>
                         <div class="valid-feedback" aria-live="assertive">Location looks good!</div>
                         <div class="invalid-feedback" aria-live="assertive">Please enter the location</div>
                     </div>
                 </div>
                 <div class="mb-4">
                     <label for="country" class="form-label">Country</label>
-                    <input name="listing[country]" placeholder="enter country" type="text" class="form-control" required>
+                    <input id="country" name="listing[country]" placeholder="enter country" type="text" class="form-control" required>
                     <div class="valid-feedback" aria-live="assertive">Country name looks good!</div>
                     <div class="invalid-feedback" aria-live="assertive">Please enter the country name</div>
                 </div>

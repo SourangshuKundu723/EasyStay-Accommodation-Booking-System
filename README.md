@@ -41,6 +41,7 @@ MajorProject/
 ├── cloudConfig.js
 ├── middleware.js
 ├── package.json
+├── package-lock.json
 ├── README.md
 ├── schema.js
 ├── controllers/
@@ -135,7 +136,7 @@ http://localhost:8080
 - Users can leave reviews on properties
 - Ratings and comments are linked to the listing and author
 
-### Authentication
+### Authentication & Authorization
 - Sign up and login system
 - Protected routes for creating and editing listings
 - User-specific profile access

@@ -117,12 +117,11 @@ body{
 
 .listing-card{
     border: none;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .show-listing-card{
     border: none;
-    margin-bottom: 0.1rem;
 }
 
 .card-display:hover{
@@ -155,6 +154,48 @@ body{
 .card-img-overlay:hover{
     opacity: 0.2;
     background-color: white;
+}
+
+.listing-card {
+    display: flex;
+    gap: 1rem;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+.card-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+.card-desc-body {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.card-icons {
+    color: #fe424d;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    background-color: var(--bs-tertiary-bg);
+    border: 1px solid rgba(0, 0, 0, 0.089);
+    border-radius: 0.6rem;
+}
+
+@media (max-width: 768px) {
+    .listing-card {
+        flex-direction: column;
+    }
 }
 
 .btn1{
@@ -197,6 +238,7 @@ body{
     width: 1.5rem;
     color: #ad1d2c;
 }
+
 .profile-card {
     border: 1px solid var(--bs-border-color);
     border-radius: 1rem;

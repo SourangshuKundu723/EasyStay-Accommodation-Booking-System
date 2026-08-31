@@ -14,7 +14,7 @@ const sampleListings = [
       type: "Point",
       coordinates: [-118.774, 34.0259],
     },
-    category: "pools",
+    category: "beach",
   },
   {
     title: "Modern Loft in Downtown",
@@ -99,7 +99,7 @@ const sampleListings = [
       type: "Point",
       coordinates: [-86.8515, 21.1619],
     },
-    category: "pools",
+    category: "beach",
   },
   {
     title: "Rustic Cabin by the Lake",
@@ -201,7 +201,7 @@ const sampleListings = [
       type: "Point",
       coordinates: [178.065, -17.7134],
     },
-    category: "pools",
+    category: "beach",
   },
   {
     title: "Charming Cottage in the Cotswolds",
@@ -252,7 +252,7 @@ const sampleListings = [
       type: "Point",
       coordinates: [115.1889, -8.4095],
     },
-    category: "pools",
+    category: "beach",
   },
   {
     title: "Mountain View Cabin in Banff",
@@ -303,7 +303,7 @@ const sampleListings = [
       type: "Point",
       coordinates: [98.3923, 7.8804],
     },
-    category: "pools",
+    category: "beach",
   },
   {
     title: "Historic Castle in Scotland",
@@ -371,7 +371,7 @@ const sampleListings = [
       type: "Point",
       coordinates: [25.3289, 37.4467],
     },
-    category: "pools",
+    category: "beach",
   },
   {
     title: "Eco-Friendly Treehouse Retreat",
@@ -456,7 +456,7 @@ const sampleListings = [
       type: "Point",
       coordinates: [73.2207, 1.9772],
     },
-    category: "pools",
+    category: "beach",
   },
   {
     title: "Ski Chalet in Aspen",
@@ -490,7 +490,7 @@ const sampleListings = [
       type: "Point",
       coordinates: [-84.0875, 9.9281],
     },
-    category: "pools",
+    category: "beach",
   },
 ];
 

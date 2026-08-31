@@ -11,15 +11,75 @@
                 <img src="<%= listing.image.url %>" class="card-img-top show-img mb-3" alt="listing image">
                 <div class="card-body">
                     <p class="card-text">
-                        <i class="fa-solid fa-user"></i> Owned by: <i><span class="fw-semibold"><%= listing.owner.username %></span></i>
-                        <br>
-                        <i class="fa-solid fa-bars-staggered"></i> <%= listing.description %>
-                        <br>
-                        <i class="fa-solid fa-indian-rupee-sign"></i> <%= listing.price ? listing.price.toLocaleString("en-IN") : 0 %> / night
-                        <br>
-                        <i class="fa-solid fa-location-dot"></i> <%= listing.location %>
-                        <br>
-                        <i class="fa-solid fa-earth-americas"></i> <%= listing.country %>
+                        <div class="listing-card">
+                            <div class="card cards">
+                                <div class="card-icons"><i class="fa-solid fa-user"></i></div>
+                                <div>
+                                    <div><span class="fw-semibold">Hosted by <%= listing.owner.username %></span></div>
+                                    <div style="font-size: 0.75rem;"><i><span><%= listing.owner.email %></span></i></div>
+                                </div>
+                            </div>
+                            <div class="card cards">
+                                <div class="card-icons">
+                                    <% if (listing.category === "iconic-cities") { %>
+                                        <i class="fa-solid fa-city"></i>
+                                    <% } else if (listing.category === "mountains") { %>
+                                        <i class="fa-solid fa-mountain"></i>
+                                    <% } else if (listing.category === "castles") { %>
+                                        <i class="fa-solid fa-chess-rook"></i>
+                                    <% } else if (listing.category === "beach") { %>
+                                        <i class="fa-solid fa-umbrella-beach"></i>
+                                    <% } else if (listing.category === "rooms") { %>
+                                        <i class="fa-solid fa-bed"></i>
+                                    <% } else if (listing.category === "camping") { %>
+                                        <i class="fa-solid fa-tent"></i>
+                                    <% } else if (listing.category === "farms") { %>
+                                        <i class="fa-solid fa-cow"></i>
+                                    <% } else if (listing.category === "arctic") { %>
+                                        <i class="fa-solid fa-snowflake"></i>
+                                    <% } %>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <span class="fw-semibold">
+                                        <% if (listing.category === "iconic-cities") { %>
+                                            Category: Iconic cities
+                                        <% } else if (listing.category === "mountains") { %>
+                                            Category: Mountains
+                                        <% } else if (listing.category === "castles") { %>
+                                            Category: Castles
+                                        <% } else if (listing.category === "beach") { %>
+                                            Category: Beach
+                                        <% } else if (listing.category === "rooms") { %>
+                                            Category: Rooms
+                                        <% } else if (listing.category === "camping") { %>
+                                            Category: Camping
+                                        <% } else if (listing.category === "farms") { %>
+                                            Category: Farms
+                                        <% } else if (listing.category === "arctic") { %>
+                                            Category: Arctic
+                                        <% } %>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-desc">
+                            <div class="card-desc-body">
+                                <div class="card-icons"><i class="fa-solid fa-bars-staggered"></i></div>
+                                <div><%= listing.description %></div>
+                            </div>
+                            <div class="card-desc-body">
+                                <div class="card-icons"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                                <div><%= listing.price ? listing.price.toLocaleString("en-IN") : 0 %> / night</div>
+                            </div>
+                            <div class="card-desc-body">
+                                <div class="card-icons"><i class="fa-solid fa-location-dot"></i></div>
+                                <div><%= listing.location %></div>
+                            </div>
+                            <div class="card-desc-body">
+                                <div class="card-icons"><i class="fa-solid fa-earth-americas"></i></div>
+                                <div><%= listing.country %></div>
+                            </div>
+                        </div>
                     </p>
                 </div>
                 <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
@@ -52,7 +112,7 @@
                             <input type="radio" id="first-rate4" name="review[rating]" value="4" />
                             <label for="first-rate4" title="Very good">4 stars</label>
                             <input type="radio" id="first-rate5" name="review[rating]" value="5" />
-                            <label for="first-rate5" title="Amazing">5 stars</label>
+                            <label for="first-rate5" title="">5 stars</label>
                         </fieldset>
                     </div>
                     <div class="mb-3">

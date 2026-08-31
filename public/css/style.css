@@ -117,7 +117,9 @@ body{
 
 .listing-card{
     border: none;
-    margin-bottom: 1rem;
+    margin-bottom: 1.3rem;
+    display: flex;
+    gap: 1rem;
 }
 
 .show-listing-card{
@@ -154,11 +156,6 @@ body{
 .card-img-overlay:hover{
     opacity: 0.2;
     background-color: white;
-}
-
-.listing-card {
-    display: flex;
-    gap: 1rem;
 }
 
 .cards {
@@ -341,7 +338,7 @@ body{
 .category-bar {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     padding: 1rem 0.5rem;
     overflow-x: auto;
     white-space: nowrap;
@@ -380,10 +377,56 @@ body{
     color: #fe424d;
 }
 
+.category.active {
+    color: #fe424d;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #fe424d;
+}
+
+/* Tax switch */
+.tax-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.25rem;
+    padding: 0rem 0.5rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+}
+
+[data-bs-theme="dark"] .tax-switch {
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tax-info {
+    display: none;
+    color: #22c55e;
+}
+
+#header {
+    display: flex; 
+    align-items: center; 
+    gap: 2rem;
+}
+
 @media (max-width: 768px) {
+    #header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
     .category-bar {
+        width: 100%;
+        flex: none;
         gap: 1.5rem;
         padding: 0.7rem 1rem;
+    }
+
+    .tax-switch {
+        width: 100%;
+        height: 3.25rem;
+        margin: 0.25rem 0 0.75rem;
     }
 
     .category {
@@ -394,10 +437,4 @@ body{
     .category i {
         font-size: 1.1rem;
     }
-}
-
-.category.active {
-    color: #fe424d;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #fe424d;
 }

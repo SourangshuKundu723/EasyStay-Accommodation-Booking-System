@@ -72,3 +72,18 @@ categories.forEach(category => {
         category.classList.add("active");
     });
 });
+
+//Tax switch functionality
+let taxSwitch = document.getElementById("switchCheckReverse");
+let taxInfo = document.getElementsByClassName("tax-info");
+
+taxSwitch.addEventListener("click", () => {
+    for(info of taxInfo){
+        if(info.style.display != "inline"){
+            info.style.display = "inline";
+        }
+        else{
+            info.style.display = "none";
+        }
+    }
+});

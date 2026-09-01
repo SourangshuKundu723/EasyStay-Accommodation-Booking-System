@@ -9,6 +9,14 @@
                 <a class="nav-link fw-semibold" href="/listings">Explore</a>
                 <a class="nav-link fw-semibold" href="/listings/new">Add a new listing</a>
             </div>
+
+            <div class="navbar-nav mx-auto flex-grow-1 justify-content-center min-w-80">
+                <form class="d-flex w-100 justify-content-center" role="search" style="max-width: 520px;">
+                    <input class="form-control me-2" type="search" placeholder="Search listings..." aria-label="Search" />
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </form>
+            </div>
+
             <i class="bi bi-moon-fill ms-auto me-2 toggle" style="font-size: 1.2rem;"></i> <span class="me-3 toggle">Toggle Theme</span>
             <div class="navbar-nav">
                 <% if(!currUser) { %>

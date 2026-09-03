@@ -438,3 +438,23 @@ body{
         font-size: 1.1rem;
     }
 }
+
+.search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+}
+
+.search-input {
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+    min-width: 200px;
+}

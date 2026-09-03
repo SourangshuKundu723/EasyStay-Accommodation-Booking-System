@@ -8,6 +8,11 @@ module.exports.index = async (req, res) => {
     let { category } = req.query;
     const search = req.query.search?.trim();
 
+    // Redirect empty search to /listings
+    if (req.query.search !== undefined && !search) {
+        return res.redirect("/listings");
+    }
+
     let filter = {};
 
     // Category filter

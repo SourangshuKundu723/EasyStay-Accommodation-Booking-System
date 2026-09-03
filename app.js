@@ -37,8 +37,9 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
-app.get("/", (req, res) => {
-    res.send("root is working");
+app.use((req, res, next) => {
+    res.locals.search = req.query.search || "";
+    next();
 });
 
 app.use(session({

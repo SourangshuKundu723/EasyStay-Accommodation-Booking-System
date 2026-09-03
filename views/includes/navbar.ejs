@@ -11,8 +11,8 @@
             </div>
 
             <div class="navbar-nav mx-auto flex-grow-1 justify-content-center min-w-60">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 search-input" type="search" placeholder="Search listings..."/>
+                <form class="d-flex" role="search" action="/listings" method="GET">
+                    <input class="form-control me-2 search-input" type="search" name="search" placeholder="Search listings..." value="<%= search || '' %>"/>
                     <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
                 </form>
             </div>

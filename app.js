@@ -19,6 +19,8 @@ const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
+const dbUrl = process.env.ATLASDB_URL;
+
 main().then((res) => {
     console.log("connection successful");
 }).catch((err) => {
@@ -26,7 +28,7 @@ main().then((res) => {
 });
 
 async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/Wanderlust");
+    await mongoose.connect(dbUrl);
 }
 
 app.set("view engine", "ejs");

@@ -52,7 +52,7 @@
         <% for(let listing of allListings){ %>
             <a href="/listings/<%= listing._id %>" class="card-link">
                 <div class="card card-display col listing-card">
-                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image" style="height: 18rem;">
+                    <img src="<%= listing.image.url.replace('/upload/', '/upload/w_600,q_auto,f_auto/') %>" class="card-img-top" alt="listing image" style="height: 18rem;" loading="lazy" decoding="async">
                     <div class="card-img-overlay"></div>
                     <div class="card-body">
                         <h5 class="card-title mt-2"><b><%= listing.title %></b></h5>
@@ -66,4 +66,21 @@
             </a>
         <% } %>
     </div>
+    <% if (totalPages > 1) { %>
+        <nav class="d-flex justify-content-center mb-4" aria-label="Listings pages">
+            <ul class="pagination">
+                <% if (page > 1) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="/listings?page=<%= page - 1 %><%= category ? '&category=' + encodeURIComponent(category) : '' %><%= search ? '&search=' + encodeURIComponent(search) : '' %>">Previous</a>
+                    </li>
+                <% } %>
+                <li class="page-item active"><span class="page-link"><%= page %> / <%= totalPages %></span></li>
+                <% if (page < totalPages) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="/listings?page=<%= page + 1 %><%= category ? '&category=' + encodeURIComponent(category) : '' %><%= search ? '&search=' + encodeURIComponent(search) : '' %>">Next</a>
+                    </li>
+                <% } %>
+            </ul>
+        </nav>
+    <% } %>
 </body>

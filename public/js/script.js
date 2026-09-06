@@ -74,16 +74,13 @@ categories.forEach(category => {
 });
 
 //Tax switch functionality
-let taxSwitch = document.getElementById("switchCheckReverse");
-let taxInfo = document.getElementsByClassName("tax-info");
+const taxSwitch = document.getElementById("switchCheckReverse");
+const taxInfo = document.getElementsByClassName("tax-info");
 
-taxSwitch.addEventListener("click", () => {
-    for(info of taxInfo){
-        if(info.style.display != "inline"){
-            info.style.display = "inline";
+if (taxSwitch) {
+    taxSwitch.addEventListener("click", () => {
+        for (const info of taxInfo) {
+            info.style.display = info.style.display === "inline" ? "none" : "inline";
         }
-        else{
-            info.style.display = "none";
-        }
-    }
-});
+    });
+}

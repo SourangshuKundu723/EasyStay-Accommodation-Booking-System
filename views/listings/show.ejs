@@ -3,12 +3,14 @@
     let mapToken = "<%= process.env.MAP_TOKEN %>";
     let coordinates = <%- JSON.stringify(listing.geometry.coordinates) %>;
 </script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.29.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.29.0/mapbox-gl.js"></script>
 <body>
     <div class="row">
         <div class="col-8 offset-2">
             <h2 class="heading"><b><%= listing.title %></b></h2>
             <div class="card show-listing-card">
-                <img src="<%= listing.image.url %>" class="card-img-top show-img mb-3" alt="listing image">
+                <img src="<%= listing.image.url.replace('/upload/', '/upload/w_1200,q_auto,f_auto/') %>" class="card-img-top show-img mb-3" alt="listing image" decoding="async">
                 <div class="card-body">
                     <p class="card-text">
                         <div class="listing-card">

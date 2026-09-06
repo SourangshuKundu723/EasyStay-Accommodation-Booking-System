@@ -7,6 +7,8 @@ const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 module.exports.index = async (req, res) => {
     let { category } = req.query;
     const search = req.query.search?.trim();
+    const page = Math.max(Number.parseInt(req.query.page, 10) || 1, 1);
+    const pageSize = 12;
 
     // Redirect empty search to /listings
     if (req.query.search !== undefined && !search) {
@@ -30,9 +32,23 @@ module.exports.index = async (req, res) => {
         ];
     }
 
-    let allListings = await Listing.find(filter);
+    const [allListings, totalListings] = await Promise.all([
+        Listing.find(filter)
+            .select("title image price location country category")
+            .sort({ _id: -1 })
+            .skip((page - 1) * pageSize)
+            .limit(pageSize)
+            .lean(),
+        Listing.countDocuments(filter)
+    ]);
     
-    res.render("listings/index.ejs", {allListings, category, search});
+    res.render("listings/index.ejs", {
+        allListings,
+        category,
+        search,
+        page,
+        totalPages: Math.ceil(totalListings / pageSize)
+    });
 };
 
 module.exports.renderNewForm = (req, res) => {

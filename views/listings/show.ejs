@@ -7,7 +7,7 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.29.0/mapbox-gl.js"></script>
 <body>
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class="col-8 offset-2 show-content">
             <h2 class="heading"><b><%= listing.title %></b></h2>
             <div class="card show-listing-card">
                 <img src="<%= listing.image.url.replace('/upload/', '/upload/w_1200,q_auto,f_auto/') %>" class="card-img-top show-img mb-3" alt="listing image" decoding="async">
@@ -96,7 +96,7 @@
                 <% } %>
             </div>
         </div>
-        <div class="col-8 offset-2 mb-5">
+        <div class="col-8 offset-2 mb-5 show-content">
             <hr>
             <h3 class="mb-3"><b>Leave a review</b></h3>
             <% if(currUser) { %>
@@ -161,7 +161,7 @@
                 <% } %>
             </div>
         </div>
-        <div class="col-8 offset-2 mb-5">
+        <div class="col-8 offset-2 mb-5 show-content">
             <hr>
             <h3 class="mb-3"><b>Where you'll be</b></h3>
             <div id="map"></div>

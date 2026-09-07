@@ -193,6 +193,11 @@ body{
     .listing-card {
         flex-direction: column;
     }
+
+    .show-content {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
 }
 
 .btn1{

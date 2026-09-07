@@ -2,13 +2,19 @@
 
 A full-stack accommodation booking web application inspired by Airbnb-style platforms, built with Node.js, Express, MongoDB, and EJS. This project enables users to browse stay listings, view details, add reviews, and manage property listings with authentication and map integration.
 
-<p align="center">
+<p align="center" style="padding-top: 1.4rem;">
   <img src="https://readme-typing-svg.herokuapp.com?font=Unbounded&weight=800&size=40&duration=1500&pause=1000&color=FE424D&center=true&vCenter=true&width=900&lines=EasyStay;" alt="EasyStay banner" />
 </p>
+
+## 🌐 Live Demo
+
+**The deployed application is available at:**  https://easystay-zkdp.onrender.com
 
 ## ✨ Features
 
 - Browse accommodation listings by category
+- Search listings by title, location, or country
+- Paginated listing results with category and search filters preserved
 - View detailed listing pages with pricing and location info
 - Add, edit, and delete listings for authenticated users
 - User signup/login/logout using Passport.js
@@ -17,6 +23,7 @@ A full-stack accommodation booking web application inspired by Airbnb-style plat
 - Mapbox geocoding and location-based listing data
 - Flash notifications for success and error states
 - Responsive UI built with EJS templates, Bootstrap and custom CSS
+- Light and dark theme support with tax display toggle
 
 ## 🧑‍💻 Tech Stack
 
@@ -27,7 +34,7 @@ A full-stack accommodation booking web application inspired by Airbnb-style plat
 - File Uploads: Multer + Cloudinary
 - Maps: Mapbox Geocoding API
 - Validation: Joi
-- Session Management: Express Session + Connect Flash
+- Session Management: Express Session + connect-mongo
 
 ## 🚀 Project Overview
 
@@ -39,7 +46,7 @@ EasyStay is designed as a marketplace for short-term stays and vacation rentals.
 MajorProject/
 ├── app.js
 ├── cloudConfig.js
-├── middleware.js
+├── middlewares.js
 ├── package.json
 ├── package-lock.json
 ├── README.md
@@ -79,7 +86,7 @@ MajorProject/
 Before running the app, ensure you have:
 
 - Node.js installed
-- MongoDB running locally
+- MongoDB running locally or an accessible MongoDB Atlas database
 - A Cloudinary account
 - A Mapbox access token
 
@@ -104,9 +111,13 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 MAP_TOKEN=your_mapbox_access_token
+ATLASDB_URL=your_mongodb_connection_string
+SECRET=your_session_secret
 ```
 
-4. Start MongoDB locally on:
+4. For local development, start MongoDB or provide a MongoDB Atlas connection string through `ATLASDB_URL`.
+
+The application connects to:
 
 ```bash
 mongodb://127.0.0.1:27017/Wanderlust
@@ -131,6 +142,8 @@ http://localhost:8080
 - Update listing details and image
 - Delete listings securely
 - Filter by category
+- Search and paginate listing results
+- View a responsive listing detail page with map integration
 
 ### Reviews
 - Users can leave reviews on properties
@@ -144,6 +157,11 @@ http://localhost:8080
 ### Maps and Location
 - Listing locations are geocoded through Mapbox
 - Coordinates are stored with each listing to support location-based features
+
+### Responsive Experience
+- Listing cards stack vertically on smaller screens
+- Listing details, forms, login, and signup layouts use the full available mobile width
+- Navigation remains usable through Bootstrap's responsive collapse behavior
 
 ## 📌 Future Improvements
 
